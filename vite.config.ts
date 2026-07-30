@@ -3,11 +3,10 @@ import { defineConfig } from "vite";
 import hostingConfig from "./.openai/hosting.json";
 import { sites } from "./build/sites-vite-plugin";
 
-const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
-  "00000000-0000-4000-8000-000000000000";
-const d1DatabaseName = process.env.CBU_D1_DATABASE_NAME ?? "cbu-survey-db";
+const CBU_D1_DATABASE_ID = "d59ceb69-d2c9-4cf0-b8f8-5d1d49507eb5";
+const d1DatabaseName = process.env.CBU_D1_DATABASE_NAME ?? "survey";
 const d1DatabaseId =
-  process.env.CBU_D1_DATABASE_ID ?? SITE_CREATOR_PLACEHOLDER_DATABASE_ID;
+  process.env.CBU_D1_DATABASE_ID ?? CBU_D1_DATABASE_ID;
 
 const { d1, r2 } = hostingConfig;
 
