@@ -13,8 +13,8 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "CBU Bank Lending Survey Portal",
     description: "Interactive demonstration of a secure bank lending survey collection and monitoring platform.",
     icons: {
-      icon: "/favicon.svg",
-      shortcut: "/favicon.svg",
+      icon: "/cbu-logo.png",
+      shortcut: "/cbu-logo.png",
     },
     openGraph: {
       title: "CBU Bank Lending Survey",

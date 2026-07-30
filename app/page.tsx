@@ -383,7 +383,7 @@ export default function Home() {
       <main className="login-shell">
         <section className="login-panel">
           <div className="brand-block">
-            <div className="brand-mark">CBU</div>
+            <img className="brand-logo" src="/cbu-logo.png" alt="Central Bank of Uzbekistan" />
             <div>
               <span>Central Bank of Uzbekistan</span>
               <h1>Bank Lending Survey Portal</h1>
@@ -429,7 +429,7 @@ export default function Home() {
       <main className="app-shell">
         <header className="topbar">
           <div className="brand">
-            <div className="brand-mark">CBU</div>
+            <img className="brand-logo" src="/cbu-logo.png" alt="Central Bank of Uzbekistan" />
             <div>
               <strong>Bank Lending Survey</strong>
               <span>2026 Q2 collection</span>
@@ -472,7 +472,7 @@ export default function Home() {
     <main className="app-shell">
       <header className="topbar">
         <div className="brand">
-          <div className="brand-mark">CBU</div>
+          <img className="brand-logo" src="/cbu-logo.png" alt="Central Bank of Uzbekistan" />
           <div>
             <strong>Bank Lending Survey</strong>
             <span>2026 Q2 collection</span>
