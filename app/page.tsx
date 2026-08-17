@@ -220,11 +220,9 @@ export default function Home() {
   const sourceStats = useMemo(() => {
     return surveyParts.map(({ source, label }) => {
       const questions = surveyQuestions.filter((question) => question.source === source);
-      const keys = questions.flatMap(getQuestionKeys);
-      const complete = keys.filter((key) => answers[key]?.trim()).length;
-      return { source, label, complete, total: keys.length };
+      return { source, label, questionCount: questions.length };
     });
-  }, [answers]);
+  }, []);
 
   useEffect(() => {
     const rawSession = window.localStorage.getItem("cbu-session");
@@ -315,18 +313,26 @@ export default function Home() {
     setNotice("Draft saved on this computer.");
   }
 
-  function fillNeutralAnswers() {
+  function markCurrentQuestionNoInformation() {
     const next = { ...answers };
-    for (const question of activePartQuestions) {
-      const neutral = question.scale === "TEXT" ? "No additional issues to report." : responseScales[question.scale].find((option) => option.code === "3" || option.code === "0")?.code ?? responseScales[question.scale][0].code;
-      for (const row of question.rows) {
-        for (const column of question.columns) {
-          next[answerKey(question.id, row, column)] = neutral;
-        }
+    const noInformationValue = currentQuestion.scale === "TEXT"
+      ? "I don't have information about this topic."
+      : responseScales[currentQuestion.scale].find((option) => option.code === "9" || option.code === "NA")?.code;
+
+    if (!noInformationValue) return;
+
+    let marked = 0;
+    for (const key of getQuestionKeys(currentQuestion)) {
+      if (!next[key]?.trim()) {
+        next[key] = noInformationValue;
+        marked += 1;
       }
     }
+
     setAnswers(next);
-    setNotice("Remaining items filled with neutral responses for demo testing.");
+    setNotice(marked
+      ? `${marked} unanswered response item${marked === 1 ? " was" : "s were"} marked as no information available.`
+      : "This question already has a response for every item.");
   }
 
   function validateCurrent() {
@@ -456,8 +462,8 @@ export default function Home() {
             {sourceStats.map((stat) => (
               <button key={stat.source} type="button" onClick={() => choosePart(stat.source)}>
                 <span>{stat.label}</span>
-                <strong>{Math.round((stat.complete / stat.total) * 100)}%</strong>
-                <small>{stat.complete}/{stat.total} items answered</small>
+                <strong>{stat.questionCount}</strong>
+                <small>questions in this survey</small>
               </button>
             ))}
           </div>
@@ -653,7 +659,7 @@ export default function Home() {
                   onClick={() => choosePart(stat.source)}
                 >
                   <span>{stat.label}</span>
-                  <strong>{stat.complete}/{stat.total}</strong>
+                  <strong>{stat.questionCount} questions</strong>
                 </button>
               ))}
             </div>
@@ -682,9 +688,9 @@ export default function Home() {
           <section className="content">
             <div className="content-head">
               <div>
-                <span className="eyebrow">{currentQuestion.source} / {currentQuestion.section}</span>
-                <h1>{currentQuestion.title}</h1>
-                <p>{currentQuestion.prompt}</p>
+                <span className="eyebrow">{currentQuestion.source} / {currentQuestion.section} / {currentQuestion.id}</span>
+                <h1>{currentQuestion.prompt}</h1>
+                <p className="question-topic"><strong>Topic:</strong> {currentQuestion.title}</p>
               </div>
               <div className="question-meter">
                 <strong>{questionProgress}/{getQuestionKeys(currentQuestion).length}</strong>
@@ -786,7 +792,7 @@ export default function Home() {
 
             <div className="actions">
               <button className="secondary" onClick={validateCurrent}>Validate question</button>
-              <button className="secondary" onClick={fillNeutralAnswers}>Fill remaining neutral</button>
+              <button className="secondary" onClick={markCurrentQuestionNoInformation}>I don&apos;t have information on this topic</button>
               <button className="secondary" onClick={() => setSurveyChosen(false)}>Choose survey</button>
               <div>
                 <button className="ghost" disabled={activeQuestion === 0} onClick={goPrevious}>Previous</button>
