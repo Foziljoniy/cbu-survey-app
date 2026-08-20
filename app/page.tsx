@@ -615,7 +615,7 @@ export default function Home() {
 
               {selectedSubmission ? (
                 <div className="answer-review">
-                  {surveyQuestions.filter((question) => question.source === selectedSubmission.survey_source).slice(0, 10).map((question) => (
+                  {surveyQuestions.filter((question) => question.source === selectedSubmission.survey_source).map((question) => (
                     <details key={question.id}>
                       <summary>{question.id} - {question.title}</summary>
                       <div className="review-grid">
@@ -631,7 +631,7 @@ export default function Home() {
                       </div>
                     </details>
                   ))}
-                  <p className="review-note">First 10 questions shown for fast review. The stored submission contains all {selectedSubmission.total_items} response items for this survey.</p>
+                  <p className="review-note">Click any question to view submitted responses. The stored submission contains all {selectedSubmission.total_items} response items for this survey.</p>
                 </div>
               ) : (
                 <div className="empty-state">No bank submissions yet.</div>

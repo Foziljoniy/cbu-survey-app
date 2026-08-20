@@ -1,4 +1,4 @@
-export type ScaleKey = "S" | "F" | "D" | "FD" | "M" | "G" | "L" | "Q" | "P" | "TEXT";
+export type ScaleKey = "S" | "F" | "D" | "FD" | "M" | "G" | "L" | "Q" | "P" | "FR" | "FLR" | "TEXT";
 
 export type SurveyQuestion = {
   id: string;
@@ -84,6 +84,22 @@ export const responseScales: Record<ScaleKey, { code: string; label: string }[]>
     { code: "5", label: "Above 75%" },
     { code: "9", label: "N/A" },
   ],
+  FR: [
+    { code: "-2", label: "Contributed considerably to a decrease in rejected loans" },
+    { code: "-1", label: "Contributed somewhat to a decrease in rejected loans" },
+    { code: "0", label: "No significant impact / basically unchanged" },
+    { code: "+1", label: "Contributed somewhat to an increase in rejected loans" },
+    { code: "+2", label: "Contributed considerably to an increase in rejected loans" },
+    { code: "NA", label: "N/A" },
+  ],
+  FLR: [
+    { code: "-2", label: "Considerably lower lending rates" },
+    { code: "-1", label: "Somewhat lower lending rates" },
+    { code: "0", label: "Basically unchanged lending rates" },
+    { code: "+1", label: "Somewhat higher lending rates" },
+    { code: "+2", label: "Considerably higher lending rates" },
+    { code: "NA", label: "N/A" },
+  ],
   TEXT: [],
 };
 
@@ -97,7 +113,14 @@ export const surveyQuestions: SurveyQuestion[] = [
       "Over the past three months, how have your bank's credit standards as applied to the approval of loans or credit lines to enterprises changed?",
     scale: "S",
     columns: ["Code"],
-    rows: ["Overall", "Loans to small and medium-sized enterprises", "Loans to large enterprises", "Short-term loans", "Long-term loans"],
+    rows: [
+      "Overall",
+      "Loans to small and medium-sized enterprises",
+      "Loans to large enterprises",
+      "Short-term loans",
+      "Long-term loans",
+      "Foreign-currency loans",
+    ],
   },
   {
     id: "ECB-2",
@@ -143,6 +166,28 @@ export const surveyQuestions: SurveyQuestion[] = [
     ],
   },
   {
+    id: "ECB-3A",
+    source: "ECB Core",
+    section: "Enterprises - credit supply",
+    title: "Factors affecting enterprise lending rates",
+    prompt:
+      "Over the past three months, how have the following factors affected your bank's lending rates on new loans or credit lines to enterprises?",
+    scale: "FLR",
+    columns: ["Overall", "SME", "Large"],
+    rows: [
+      "Cost of funding / deposit funding costs",
+      "Central bank policy rate / monetary policy conditions",
+      "Money-market or interbank interest rates",
+      "Bank liquidity position",
+      "Bank capital/funding constraints",
+      "Borrower credit risk / expected credit losses",
+      "Competition from other banks",
+      "Competition from non-bank lenders / market financing",
+      "Operating and administrative costs",
+      "Other factor",
+    ],
+  },
+  {
     id: "ECB-4",
     source: "ECB Core",
     section: "Enterprises - credit supply",
@@ -176,6 +221,30 @@ export const surveyQuestions: SurveyQuestion[] = [
     rows: ["Overall", "Loans to small and medium-sized enterprises", "Loans to large enterprises"],
   },
   {
+    id: "ECB-5A",
+    source: "ECB Core",
+    section: "Enterprises - credit supply",
+    title: "Factors affecting rejected enterprise loan applications",
+    prompt:
+      "Over the past three months, how have the following factors affected the level of rejected loan applications to enterprises?",
+    scale: "FR",
+    columns: ["Overall", "SME", "Large"],
+    rows: [
+      "Applicant's history in the credit registry",
+      "Previous relationship/repayment record with the bank",
+      "Existing/current loans and indebtedness",
+      "Financial position and repayment capacity",
+      "Cash flow / income available for debt repayment",
+      "Existing leverage/debt burden",
+      "Insufficient or incomplete documentation",
+      "Insufficient collateral / collateral coverage ratio",
+      "Business/project outside the bank's sectoral or geographical lending priorities",
+      "Current financial statements/performance of the enterprise",
+      "Bank's assessment of the outlook for the sector in which the enterprise operates",
+      "Other factor",
+    ],
+  },
+  {
     id: "ECB-6",
     source: "ECB Core",
     section: "Enterprises - demand and outlook",
@@ -183,7 +252,14 @@ export const surveyQuestions: SurveyQuestion[] = [
     prompt: "Over the past three months, how has demand for loans or credit lines to enterprises changed at your bank?",
     scale: "D",
     columns: ["Code"],
-    rows: ["Overall", "Loans to small and medium-sized enterprises", "Loans to large enterprises", "Short-term loans", "Long-term loans"],
+    rows: [
+      "Overall",
+      "Loans to small and medium-sized enterprises",
+      "Loans to large enterprises",
+      "Short-term loans",
+      "Long-term loans",
+      "Foreign-currency loans",
+    ],
   },
   {
     id: "ECB-7",
@@ -215,7 +291,14 @@ export const surveyQuestions: SurveyQuestion[] = [
     prompt: "How do you expect your bank's credit standards for loans or credit lines to enterprises to change over the next three months?",
     scale: "S",
     columns: ["Code"],
-    rows: ["Overall", "Loans to small and medium-sized enterprises", "Loans to large enterprises", "Short-term loans", "Long-term loans"],
+    rows: [
+      "Overall",
+      "Loans to small and medium-sized enterprises",
+      "Loans to large enterprises",
+      "Short-term loans",
+      "Long-term loans",
+      "Foreign-currency loans",
+    ],
   },
   {
     id: "ECB-9",
@@ -225,7 +308,14 @@ export const surveyQuestions: SurveyQuestion[] = [
     prompt: "How do you expect demand for loans or credit lines to enterprises to change at your bank over the next three months?",
     scale: "D",
     columns: ["Code"],
-    rows: ["Overall", "Loans to small and medium-sized enterprises", "Loans to large enterprises", "Short-term loans", "Long-term loans"],
+    rows: [
+      "Overall",
+      "Loans to small and medium-sized enterprises",
+      "Loans to large enterprises",
+      "Short-term loans",
+      "Long-term loans",
+      "Foreign-currency loans",
+    ],
   },
   {
     id: "ECB-10",
