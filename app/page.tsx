@@ -426,6 +426,10 @@ export default function Home() {
 
           <div className="status-line" role="status">{notice}</div>
         </section>
+
+        <footer className="corner-attribution">
+          <span>Designed &amp; Developed by</span> <strong>Foziljon Alisherov</strong> <span>· Research Department</span>
+        </footer>
       </main>
     );
   }
@@ -470,6 +474,10 @@ export default function Home() {
 
           <div className="status-line" role="status">{notice}</div>
         </section>
+
+        <footer className="corner-attribution">
+          <span>Designed &amp; Developed by</span> <strong>Foziljon Alisherov</strong> <span>· Research Department</span>
+        </footer>
       </main>
     );
   }
@@ -640,6 +648,10 @@ export default function Home() {
           </div>
 
           <div className="status-line" role="status">{notice}</div>
+
+          <footer className="corner-attribution">
+            <span>Designed &amp; Developed by</span> <strong>Foziljon Alisherov</strong> <span>· Research Department</span>
+          </footer>
         </section>
       ) : (
         <div className="workspace">
@@ -683,6 +695,12 @@ export default function Home() {
                 );
               })}
             </nav>
+
+            <div className="sidebar-credit">
+              <span>Designed &amp; Developed by</span>
+              <strong>Foziljon Alisherov</strong>
+              <small>Research Department</small>
+            </div>
           </aside>
 
           <section className="content">
