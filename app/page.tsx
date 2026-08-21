@@ -393,7 +393,7 @@ export default function Home() {
             <div>
               <div className="brand-header-row">
                 <span>Central Bank of Uzbekistan</span>
-                <span className="credit-pill">Developed &amp; Designed by Foziljon Alisherov &amp; Anvar Jamolov · Research Dept.</span>
+                <span className="credit-pill">Designed by Foziljon Alisherov &amp; Anvar Jamolov · Research Dept.</span>
               </div>
               <h1>Bank Lending Survey Portal</h1>
               <p>Bank respondents complete the full ECB core and Uzbekistan survey. CBU managers review submitted results separately.</p>
@@ -431,7 +431,7 @@ export default function Home() {
         </section>
 
         <footer className="corner-attribution">
-          <span>Designed &amp; Developed by</span> <strong>Foziljon Alisherov &amp; Anvar Jamolov</strong> <span>· Research Department</span>
+          <span>Designed by</span> <strong>Foziljon Alisherov &amp; Anvar Jamolov</strong> <span>· Research Department</span>
         </footer>
       </main>
     );
@@ -479,7 +479,7 @@ export default function Home() {
         </section>
 
         <footer className="corner-attribution">
-          <span>Designed &amp; Developed by</span> <strong>Foziljon Alisherov &amp; Anvar Jamolov</strong> <span>· Research Department</span>
+          <span>Designed by</span> <strong>Foziljon Alisherov &amp; Anvar Jamolov</strong> <span>· Research Department</span>
         </footer>
       </main>
     );
@@ -653,7 +653,7 @@ export default function Home() {
           <div className="status-line" role="status">{notice}</div>
 
           <footer className="corner-attribution">
-            <span>Designed &amp; Developed by</span> <strong>Foziljon Alisherov &amp; Anvar Jamolov</strong> <span>· Research Department</span>
+            <span>Designed by</span> <strong>Foziljon Alisherov &amp; Anvar Jamolov</strong> <span>· Research Department</span>
           </footer>
         </section>
       ) : (
@@ -700,7 +700,7 @@ export default function Home() {
             </nav>
 
             <div className="sidebar-credit">
-              <span>Designed &amp; Developed by</span>
+              <span>Designed by</span>
               <strong>Foziljon Alisherov &amp; Anvar Jamolov</strong>
               <small>Research Department</small>
             </div>
