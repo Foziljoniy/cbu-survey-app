@@ -391,7 +391,10 @@ export default function Home() {
           <div className="brand-block">
             <img className="brand-logo" src="/cbu-logo.png" alt="Central Bank of Uzbekistan" />
             <div>
-              <span>Central Bank of Uzbekistan</span>
+              <div className="brand-header-row">
+                <span>Central Bank of Uzbekistan</span>
+                <span className="credit-pill">Developed &amp; Designed by Foziljon Alisherov · Research Dept.</span>
+              </div>
               <h1>Bank Lending Survey Portal</h1>
               <p>Bank respondents complete the full ECB core and Uzbekistan survey. CBU managers review submitted results separately.</p>
             </div>

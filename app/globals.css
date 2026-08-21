@@ -81,6 +81,28 @@ button:disabled { cursor: not-allowed; opacity: .55; }
   text-transform: uppercase;
 }
 
+.brand-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.credit-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  background: var(--blue-pale);
+  border: 1px solid #cfe1ef;
+  border-radius: 99px;
+  color: var(--blue-dark) !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
 h1 {
   margin: 6px 0 8px;
   font-size: 30px;
